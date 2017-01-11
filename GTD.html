@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>to-do app</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="todo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3 id="title">GTD</h3>
+        </div>
+        <div class="content">
+            <div class="task-sort">
+                <div class="task-sort-head">
+                    <div class="task-sort-all">
+                        <h5 class="task-spread">所有任务<span>&#40;1&#41;</span></h5>
+                        <ul id="task-spread-all">
+                            <li>
+                                <h5>
+                                    <img class="form" src="img/form.svg">task1<span>num</span>
+                                    <img class="close" src="img/close.svg">
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="task-sort-sortlist">
+                        <h5 class="task-spread">分类列表</h5>
+                        <div>
+                            <ul class="task-spread-level1">
+                                <li class="task-spread-level1-item">
+                                    <h5>
+                                        <img class="folder" src="img/folder.svg">默认分类<span> &#40;1&#41;</span>
+                                        <img class="close" src="img/close.svg">
+                                    </h5>
+                                    <ul class="task-spread-level2">
+                                        <li class="task-spread-level2-item item-active">
+                                            <h5>
+                                                <img class="form" src="img/form.svg">task1<span>&#40;1&#41;</span>
+                                                <img class="close" src="img/close.svg">
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-sort-add">
+                     <h5><img class="add" src="img/add.svg"><span>新增分类</span></h5>
+                </div>
+            </div>
+            <div class="task-list">
+                <div class="task-list-choose">
+                    <ul>
+                        <li id="all-choose" class="choose-active"><a href="#">所有</a></li>
+                        <li id="not-done-choose"><a href="#">未完成</a></li>
+                        <li id="done-choose"><a href="#">已完成</a></li>
+                    </ul>
+                </div>
+                <div class="task-list-detail">
+                    <ul>
+                        <li class="task-list-detail-item">
+                            <h6>2017-01-10</h6>
+                            <div class="task-list-detail-one">
+                                <ul>
+                                    <li>to do 1</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="task-list-add">
+                    <h5><img class="add" src="img/add.svg"><span>新增任务</span></h5>
+                </div>
+            </div>
+            <div class="task-detail">
+                <div class="task-detail-title">
+                    <h5><input type="text" placeholder="请输入标题"></h5>
+                    <div>
+                        <img class="success" src="img/success.svg">
+                        <img class="edit" src="img/edit.svg">
+                    </div>
+                </div>
+                <div class="task-detail-data">
+                    <h5>任务日期&#58;
+                        <input type="datatime" placeholder="yyyy-mm-dd">
+                    </h5>
+
+                </div>
+                <div class="task-detail-content">
+                    <textarea class="task-detail-input"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="todo.js"></script>
+</body>
+</html>

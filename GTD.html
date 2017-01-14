@@ -12,13 +12,13 @@
         </div>
         <div class="content">
             <div class="task-sort">
-                <div class="task-sort-head">
+                <div id="task-sort-head">
                     <div class="task-sort-all">
                         <h5 class="task-spread">所有任务<span>&#40;1&#41;</span></h5>
                         <ul id="task-spread-all">
-                            <li>
-                                <h5>
-                                    <img class="form" src="img/form.svg">task1<span>num</span>
+                            <li class="task-spread-level2-item">
+                                <h5 class="task-spread-level2-icon">
+                                    <img class="form" src="img/form.svg">task1<span>&#40;1&#41;</span>
                                     <img class="close" src="img/close.svg">
                                 </h5>
                             </li>
@@ -26,24 +26,22 @@
                     </div>
                     <div class="task-sort-sortlist">
                         <h5 class="task-spread">分类列表</h5>
-                        <div>
-                            <ul class="task-spread-level1">
-                                <li class="task-spread-level1-item">
-                                    <h5>
-                                        <img class="folder" src="img/folder.svg">默认分类<span> &#40;1&#41;</span>
-                                        <img class="close" src="img/close.svg">
-                                    </h5>
-                                    <ul class="task-spread-level2">
-                                        <li class="task-spread-level2-item item-active">
-                                            <h5>
-                                                <img class="form" src="img/form.svg">task1<span>&#40;1&#41;</span>
-                                                <img class="close" src="img/close.svg">
-                                            </h5>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul id="task-spread-level1">
+                            <li class="task-spread-level1-item">
+                                <h5 class="task-spread-level1-icon">
+                                    <img class="folder" src="img/folder.svg">默认分类<span> &#40;1&#41;</span>
+                                    <img class="close" src="img/close.svg">
+                                </h5>
+                                <ul class="task-spread-level2">
+                                    <li class="task-spread-level2-item item-active">
+                                        <h5 class="task-spread-level2-icon">
+                                            <img class="form" src="img/form.svg">task1<span>&#40;1&#41;</span>
+                                            <img class="close" src="img/close.svg">
+                                        </h5>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="task-sort-add">
@@ -94,6 +92,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="util.js"></script>
     <script type="text/javascript" src="todo.js"></script>
 </body>
 </html>

@@ -63,11 +63,11 @@ html,body {
   background-color: #F3F3F6;
 }
 
-.task-sort-head h5:hover {
+#task-sort-head h5:hover {
   cursor: pointer;
 }
 
-.task-sort-head h5:hover img {
+#task-sort-head h5:hover img {
   display: inline;
 }
 
@@ -84,11 +84,7 @@ html,body {
   margin-left: 10px;
 }
 
-#task-spread-all {
-  display: none;
-}
-
-.task-spread-level1 {
+#task-spread-level1 {
   margin: 10px 0;
 }
 
@@ -108,6 +104,10 @@ html,body {
   background-color: #fff;
 }
 
+.hide {
+  display: none;
+}
+
 .task-spread-level2-item h5 {
   padding-left: 35px;
 }
@@ -119,8 +119,6 @@ html,body {
   height: 12px;
   padding-right: 7px;
 }
-
-
 
 .task-sort-add {
   position: absolute;

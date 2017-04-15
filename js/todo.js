@@ -908,9 +908,9 @@ function clickSaveOrCancel() {
         } else {
             var taskObject = {};
             taskObject.finish = false;
-            taskObject.name = title.value;
+            taskObject.name = changeCode(title.value);
             taskObject.content = content.value;
-            taskObject.date = date.value;
+            taskObject.date = changeCode(date.value);
 
             //对 pid 的处理
             if (currentCateTable === "AllCate") { //如果焦点在所有分类上
@@ -1033,4 +1033,20 @@ function changeSaveOrNot() {
    EventUtil.addHandler(document.querySelector(".cancel-save"),"click",function() {
         generateTaskById(currentTaskId);
     });
+}
+
+
+/**
+ * 转码 XSS 防护
+ * @param  {String} str 用户输入的字符串
+ * @return {String}     转码后的字符串
+ */
+function changeCode(str) {
+    str = str.replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#x27;")
+              .replace(/\//g, "&#x2f;");
+    return str;
 }

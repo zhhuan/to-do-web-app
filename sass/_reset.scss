@@ -1,0 +1,105 @@
+/**
+ *reset
+ */
+div, body, h2, h3, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+h2, h3 {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/**
+ *common
+ */
+html {
+    height:100%;
+    body {
+        font-family:$base-ff;
+        height:100%;
+        .container {
+            height:100%;
+            padding-top: 60px;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+        }
+    }
+}
+
+button,select,input,textarea {
+    font-family:$base-ff;
+    outline:none;
+}
+
+textarea:disabled {      
+    color:#000;
+    background:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

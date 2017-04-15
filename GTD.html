@@ -1,98 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>to-do app</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="todo.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="toDo 单页应用" content="记事本 任务管理 webApp">
+    <meta name="description" content="用于记录待办事项的工具">
+    <meta name="author" content="Zhonghuan, huan_zhong2@126.com">
+    <meta name ="viewport" content ="width=device-width,initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"> <!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz -->
+    <meta name="apple-mobile-web-app-title" content="待办事项"><!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="theme-color" content="#3C3764">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    
+    <title>ToDo</title>
+    <link rel="stylesheet" type="text/css" href="css/new_todo.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h3 id="title">GTD</h3>
+            <h3>ToDo</h3>
         </div>
         <div class="content">
-            <div class="task-sort">
-                <div id="task-sort-head">
-                    <div class="task-sort-all">
-                        <h5 class="task-spread">所有任务<span>&#40;1&#41;</span></h5>
-                        <ul id="task-spread-all">
-                            <li class="task-spread-level2-item">
-                                <h5 class="task-spread-level2-icon">
-                                    <img class="form" src="img/form.svg">task1<span>&#40;1&#41;</span>
-                                    <img class="close" src="img/close.svg">
-                                </h5>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="task-sort-sortlist">
-                        <h5 class="task-spread">分类列表</h5>
-                        <ul id="task-spread-level1">
-                            <li class="task-spread-level1-item">
-                                <h5 class="task-spread-level1-icon">
-                                    <img class="folder" src="img/folder.svg">默认分类<span> &#40;1&#41;</span>
-                                    <img class="close" src="img/close.svg">
-                                </h5>
-                                <ul class="task-spread-level2">
-                                    <li class="task-spread-level2-item item-active">
-                                        <h5 class="task-spread-level2-icon">
-                                            <img class="form" src="img/form.svg">task1<span>&#40;1&#41;</span>
-                                            <img class="close" src="img/close.svg">
-                                        </h5>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="task-sort-add">
-                     <h5><img class="add" src="img/add.svg"><span>新增分类</span></h5>
-                </div>
-            </div>
-            <div class="task-list">
-                <div class="task-list-choose">
+            <div class="cate">
+                <div id="cate-all" cateid="-1" onclick="clickCate(this)">所有任务 (<span>2</span>)</div>
+                <div id="cate-list">分类列表</div>
+                <div id="cate-content" class="list">
                     <ul>
-                        <li id="all-choose" class="choose-active"><a href="#">所有</a></li>
-                        <li id="not-done-choose"><a href="#">未完成</a></li>
-                        <li id="done-choose"><a href="#">已完成</a></li>
-                    </ul>
-                </div>
-                <div class="task-list-detail">
-                    <ul>
-                        <li class="task-list-detail-item">
-                            <h6>2017-01-10</h6>
-                            <div class="task-list-detail-one">
-                                <ul>
-                                    <li>to do 1</li>
-                                </ul>
-                            </div>
+                        <li>
+                            <h2>
+                                <img class="folder" src="img/folder.svg">百度<span>(1)</span><img class="delete" src="img/delete.svg">
+                            </h2>
+                            <ul>
+                                <li>
+                                    <h3>
+                                        <img class="form" src="img/form.svg">task1<span>(2)</span><img class="delete" src="img/delete.svg">
+                                    </h3>
+                                </li>
+                            </ul> 
+                        </li>
+                        <li>
+                            <h2>
+                                <img class="folder" src="img/folder.svg">默认分类<span>(0)</span><img class="delete" src="img/delete.svg">
+                            </h2>
                         </li>
                     </ul>
                 </div>
-                <div class="task-list-add">
-                    <h5><img class="add" src="img/add.svg"><span>新增任务</span></h5>
-                </div>
+                <button class="cate-add" onclick="clickAddCate()"><img class="add" src="img/add.svg">新增分类</button>
             </div>
-            <div class="task-detail">
-                <div class="task-detail-title">
-                    <h5><input type="text" placeholder="请输入标题"></h5>
-                    <div>
+            <div class="task">
+                <div class="task-status">
+                    <button id="all-tasks" class="active">所有</button>
+                    <button id="unfinish-tasks">未完成</button>
+                    <button id="finished-tasks">已完成</button>
+                </div>
+                <div class="task-list">
+                    <div>2015-06-05</div>
+                    <ul>
+                        <li taskid="1" class="active">todo-1</li>
+                        <li taskid="2">todo-2</li>
+                    </ul>
+                    <div>2015-06-05</div>
+                    <ul>
+                        <li>todo-1</li>
+                        <li>todo-2</li>
+                    </ul>
+                </div>
+                <button class="task-add" onclick="clickAddTask()"><img class="add" src="img/add.svg">新增任务</button>
+            </div>
+            <div class="detail">
+                <div class="task-title">
+                    <div class="todo-name">todo-1</div>
+                    <div class="manipulate">
                         <img class="success" src="img/success.svg">
                         <img class="edit" src="img/edit.svg">
                     </div>
                 </div>
-                <div class="task-detail-data">
-                    <h5>任务日期&#58;
-                        <input type="datatime" placeholder="yyyy-mm-dd">
-                    </h5>
-
+                <div class="task-date">
+                   任务日期：<span>2015-06-05</span>
                 </div>
-                <div class="task-detail-content">
-                    <textarea class="task-detail-input"></textarea>
+                <div class="task-content">
+                    finish task 3啊啊啊啊啊这个是假的
+                </div>
+                <div class="button-area">
+                    <!-- <span class="info"></span>
+                    <button class="save">保存</button>
+                    <button class="cancel-save">放弃</button> -->
+                </div>
+            </div>
+        </div>
+        <div class="cover">
+            <div class="modal">
+                <div class="modal-head">
+                    新增分类
+                </div>
+                <div class="modal-body">
+                    选择主分类：<select id="modal-select">
+                        <option value="volvo">Volvo</option>
+                    </select><br>
+                    新分类名称：<input id="newCateName" type="text">
+                </div>
+                <div class="modal-foot">
+                    <button onclick="cancel()">取消</button>
+                    <button onclick="ok()">确认</button>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="util.js"></script>
-    <script type="text/javascript" src="todo.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
 </body>
 </html>

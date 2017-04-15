@@ -1,0 +1,78 @@
+/**
+ *main-mid
+ */
+.task {
+  width:240px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #BDC3C7;
+  border-right: 1px solid #BDC3C7;
+
+  .task-status {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #A6A6A6;
+    font-size: 15px;
+    text-align: center;
+
+    button {
+      width: 60px;
+      height: 30px;
+      margin: 0 5px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      background-color: #D8D8D8;
+     
+    }
+  }
+}
+
+.task-status button:hover {
+  background-color: #A8AAC5;
+  color: #fff;
+}
+
+.task-status .active {
+    background-color: #A8AAC5;
+    color: #fff;
+    cursor: default;
+}
+
+.task-list {
+  height: 25px;
+  line-height: 2;
+  font-size: 15px;
+}
+
+.task-list li {
+  padding-left: 20px;    /*background-color: #fff;*/
+  cursor: pointer;
+  @include buttonHover;
+
+  &:hover {
+    background-color: #F3F3F6;
+  }
+
+  .active {
+    background-color: #F3F3F6;
+  }
+}
+
+.finished {
+  @include icon;
+}
+
+/**
+ *add
+ */
+
+.task-add {
+  width: 100%;
+  @include base-add;
+  @include buttonHover;
+  &:hover {
+    background-color: #C1C3DE;
+    color: #343521;
+  }
+}

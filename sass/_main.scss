@@ -1,0 +1,19 @@
+/*
+*main
+*/
+
+.content {
+  position:relative;
+  top:-60px;
+  overflow:hidden;
+  display:flex;
+  height:100%;
+}
+
+.hide {
+  display: none;
+}
+
+@import 'main-left';
+@import 'main-mid';
+@import 'main-right';
